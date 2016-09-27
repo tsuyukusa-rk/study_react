@@ -1,3 +1,4 @@
+var webpack = require('webpack');
 module.exports = {
   /* ビルドの起点となるファイルの設定 */
   entry: './src/app.jsx',
@@ -18,5 +19,13 @@ module.exports = {
         presets: ['es2015', 'react']
       }
     ]
-  }
+  },
+  plugins: [
+    new webpack.ProvidePlugin({
+      jQuery: "jquery",
+      $: "jquery",
+      React: 'react',
+      ReactDOM: 'react-dom'
+    })
+  ]
 };
